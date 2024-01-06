@@ -1,7 +1,29 @@
 import React from "react";
+import "./Sidebar.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { getSidebarStatus, setSidebarOff } from "../../store/sidebarSlice";
 
 const Sidebar = () => {
-  return <div>Sidebar</div>;
+  const dispatch = useDispatch();
+  const isSidebarOn = useSelector(getSidebarStatus);
+  console.log(isSidebarOn);
+
+  return (
+    <aside className={`sidebar ${isSidebarOn ? "hide-sidebar" : ""}`}>
+      <button
+        type="button"
+        className="sidebar-hide-btn"
+        onClick={() => dispatch(setSidebarOff())}
+      >
+        <i className="fas fa-times"></i>
+      </button>
+      <div className="sidebar-cnt">
+        <div className="cat-title fs-17 text-uppercase fw-6 ls-1h">
+          All Categories
+        </div>
+      </div>
+    </aside>
+  );
 };
 
 export default Sidebar;

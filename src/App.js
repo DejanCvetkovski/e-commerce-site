@@ -8,20 +8,29 @@ import {
   CartPage,
   SearchPage,
 } from "./pages/index";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/:id" element={<ProductSinglePage />} />
-          <Route path="/category/:category" element={<CategoryProductPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/search/:searchTerm" element={<SearchPage />} />
-        </Routes>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header />
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/:id" element={<ProductSinglePage />} />
+            <Route
+              path="/category/:category"
+              element={<CategoryProductPage />}
+            />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/search/:searchTerm" element={<SearchPage />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }
