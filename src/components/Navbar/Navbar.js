@@ -1,13 +1,11 @@
 import React from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getSidebarStatus, setSidebarOn } from "../../store/sidebarSlice";
+import { useDispatch } from "react-redux";
+import { setSidebarOn } from "../../store/sidebarSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const term = useSelector(getSidebarStatus);
-  console.log(term);
 
   return (
     <nav className="navbar">
