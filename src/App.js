@@ -11,6 +11,7 @@ import {
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/search/:searchTerm" element={<SearchPage />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </Provider>
     </div>
